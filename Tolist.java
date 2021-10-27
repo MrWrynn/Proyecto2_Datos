@@ -11,8 +11,11 @@ public class Tolist {
         String []arreglo=new String[operacion.length()];
         for (int i=0;i<operacion.length();i++){
             char E=operacion.charAt(i);
-            if (E>='0' && '9'>=E){
-                numero=numero+E;
+            if (E>='0' && '9'>=E || E=='─'){
+                if (E=='─'){
+                    numero=numero+"-";
+
+                }else numero=numero+E;
             }
 
             else if(E=='('){
