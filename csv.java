@@ -24,4 +24,25 @@ public class csv {
         } catch (Exception e){}
         
     }
+    
+    public void leer() {
+        BufferedReader br;
+        String linea;
+        String [] partes;
+        try {
+            br=new BufferedReader(new FileReader(direccion));
+            while((linea=br.readLine())!=null){
+                partes=linea.split(";");
+                for(int i=0; i<partes.length;i++){
+                    System.out.print(partes[i]+" | ");
+                }
+                System.out.println();
+                
+            }
+            br.close();
+        } catch (Exception e) {
+            
+        }
 }
+
+
