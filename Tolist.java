@@ -17,10 +17,19 @@ public class Tolist {
 
                 }else numero=numero+E;
             }
+            
+            else if( numero.equals("") && E == '-'){
+                numero=numero+'-';
+                
+            }
 
             else if(E=='('){
                 arreglo[posicion]=String.valueOf(E);
                 posicion++;
+                if( i+1<operacion.length() && operacion.charAt(i+1)=='-'){
+                    numero=numero+'-';
+                    i++;
+                }
             }
             else if (E == '+' || E == '-'
             || E == '*' || E == '/'
@@ -30,6 +39,12 @@ public class Tolist {
                     posicion++;
                     numero="";
                 }
+                
+                if( i+1<operacion.length() && operacion.charAt(i+1)=='-'){
+                    numero=numero+'-';
+                    i++;
+                }
+                
                 arreglo[posicion]=String.valueOf(E);
                 posicion++;
             }
