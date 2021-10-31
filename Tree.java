@@ -135,16 +135,17 @@ class ExpressionTree {
         
     
  
-    public static void main(String args[]) {
+       public static void main(String args[]) {
  
         ExpressionTree et = new ExpressionTree();
-        Tolist tolist=new Tolist("5*3/8+(95%5-10)");
+        csv csv=new csv();
+        String operacion="-3*(4+5)";
+        Tolist tolist=new Tolist(operacion); 
         postfija post=new postfija(tolist.create());
-        //String postfix = "103,21,3-,*4,5++";
-        //char[] charArray = postfix.toCharArray();
         Node root = et.constructTree(post.convertir());
-        //System.out.println("infix expression is");
-        //et.postorder(root);
         Float resultado=et.resolver(root);
+        System.out.println(resultado);
+        csv.escribir(operacion,Float.toString(resultado));
+        csv.leer();
     }
 }
