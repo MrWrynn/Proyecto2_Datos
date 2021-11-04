@@ -6,9 +6,18 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
+
+ /**
+  * escribi y lee un archivo .csv
+  * @author Jose Cruz
+  */
 public class csv {
     String direccion="C:\\Users\\User\\Documents\\DatosI\\Proyecto2\\Proyecto2\\src\\datos.csv";
-     
+     /**
+      * escribi la fecha, operacion y resultado 
+      * @param operacion operacion matematica que se introdujo en la calculadora
+      * @param resultado resultado de la operacion introducida
+      */
     public void escribir(String operacion, String resultado){
         FileWriter fw=null;
         BufferedWriter bw=null;
@@ -24,9 +33,10 @@ public class csv {
             bw.close();
             fw.close();
         } catch (Exception e){}
-        
     }
-    
+    /**
+     * lee el archivo .csv y lo muestra 
+     */
     public void leer() {
         BufferedReader br;
         String linea;
@@ -36,7 +46,7 @@ public class csv {
             while((linea=br.readLine())!=null){
                 partes=linea.split(";");
                 for(int i=0; i<partes.length;i++){
-                    System.out.print(partes[i]+" | ");
+                    System.out.print(partes[i]+"\t");
                 }
                 System.out.println();
                 
@@ -45,6 +55,10 @@ public class csv {
         } catch (Exception e) {
             
         }
-}
 
+        
+    }
+        
+    
+}
 
