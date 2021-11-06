@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
   * @author Jose Cruz
   */
 public class csv {
-    String direccion="C:\\Users\\User\\Documents\\DatosI\\Proyecto2\\Proyecto2\\src\\datos.csv";
+    String direccion="Direccio aquí\\datos.csv";
      /**
       * escribi la fecha, operacion y resultado 
       * @param operacion operacion matematica que se introdujo en la calculadora
