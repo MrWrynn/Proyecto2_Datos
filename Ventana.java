@@ -8,17 +8,13 @@ import javax.swing.JTextArea;
 
 
 
-import java.util.Random;
 
+/**
+ * Crea la clase ventana.
+ * Esta clase permite crear la ventana del cliente
+ */
 
 public class Ventana extends JFrame{
-    JButton dado=new JButton("DADO");
-    JTextArea txtTexto=new JTextArea();
-    //javax.swing.JScrollPane jScrollPane1;
-    
-    Random generador=new Random();
-    
-    int moverse;
 
     public Ventana(){
         this.setSize(650,650);

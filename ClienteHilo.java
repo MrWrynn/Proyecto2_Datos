@@ -1,3 +1,5 @@
+package ejercicio_sockets_ddr_8;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -10,10 +12,11 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import java.lang.NullPointerException;
 
 public class ClienteHilo extends Thread {
     Ventana ventana = new Ventana();//
-    JButton dado = new JButton("Dado");
+    JButton dado = new JButton("Enviar ecuación");
     JTextArea txtTexto=new JTextArea();
     String numero;
 
@@ -25,14 +28,16 @@ public class ClienteHilo extends Thread {
         this.out = out;
     }
 
+    /**
+     * Envía los mensajes al servidor Hilo 
+     * y recibe los mensajes enviados por el servidor hilo
+     */
     @Override
     public void run() {
 
-        Scanner sn = new Scanner(System.in);
-        
+        //Scanner sn = new Scanner(System.in);
         String mensaje;
         Float mensaje2;
-        int opcion = 0;
         boolean salir = false;
 
         while (!salir) {
@@ -44,8 +49,6 @@ public class ClienteHilo extends Thread {
                 txtTexto.setColumns(1);
                 txtTexto.setRows(1);
                 ventana.add(dado);
-                
-                
                 dado.addActionListener(new ActionListener() {
                 @Override
                     public void actionPerformed(ActionEvent actionEvent) {
@@ -54,17 +57,17 @@ public class ClienteHilo extends Thread {
                         out.writeUTF(numero);
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
-                        e.printStackTrace();
+                        Logger.getLogger(ClienteHilo.class.getName()).log(Level.SEVERE, null, e);
+                    } catch (java.lang.NullPointerException e) {
+                        
                     }
                     }
                 });
                 mensaje=in.readUTF();
-                System.out.println(mensaje+" el supuesto mensaje");
                 txtTexto.append(mensaje);
                 txtTexto.append("\n");
                 mensaje2=in.readFloat();
                 String s=Float.toString(mensaje2); 
-                System.out.println(mensaje2+" el supuesto mensaje 2");
                 txtTexto.append(s);
                 txtTexto.append("\n");
                 
@@ -78,8 +81,4 @@ public class ClienteHilo extends Thread {
 
     }
     
-    public int generaNumeroAleatorio(int minimo,int maximo){
-       int num=(int)Math.floor(Math.random()*(maximo-minimo+1)+(minimo));
-       return num;
-   }
 }

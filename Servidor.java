@@ -1,3 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejercicio_sockets_ddr_8;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -6,11 +13,15 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+/**
+ * Crea la clase del servidor.
+ * Esta solicita el nombre del cliente al servidor, hace la conexión 
+ * y ejecuta el ServidorHilo
+ */
 public class Servidor {
 
     public static void main(String[] args) {
-        
-        
         try {
             ServerSocket server = new ServerSocket(5000);
             Socket sc;
@@ -24,7 +35,7 @@ public class Servidor {
                 DataInputStream in = new DataInputStream(sc.getInputStream());
                 DataOutputStream out = new DataOutputStream(sc.getOutputStream());
                 
-                // Pido al cliente el nombre al cliente
+                // Pido al cliente el nombre del cliente
                 out.writeUTF("Indica tu nombre");
                 String nombreCliente = in.readUTF();
                 
@@ -39,7 +50,6 @@ public class Servidor {
         } catch (IOException ex) {
             Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         
     }
     

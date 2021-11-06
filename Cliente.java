@@ -1,3 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejercicio_sockets_ddr_8;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -6,6 +13,12 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+/**
+ * Crea la clase del cliente.
+ * Esta le envía el nombre del cliente al servidor, hace la conexión 
+ * y ejecuta el ClienteHilo
+ */
 public class Cliente {
 
     public static void main(String[] args) {
@@ -19,7 +32,7 @@ public class Cliente {
             DataInputStream in = new DataInputStream(sc.getInputStream());
             DataOutputStream out = new DataOutputStream(sc.getOutputStream());
             
-            // Leer mensaje del servidor
+            // Lee el mensaje del servidor
             String mensaje = in.readUTF();
             System.out.println(mensaje);
             
@@ -27,7 +40,7 @@ public class Cliente {
             String nombre = sn.next();
             out.writeUTF(nombre);
             
-            // ejecutamos el hilo
+            // Ejecutamos el hilo
             ClienteHilo hilo = new ClienteHilo(in, out);
             hilo.start();
             hilo.join();
