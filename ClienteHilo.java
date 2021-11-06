@@ -1,5 +1,3 @@
-package ejercicio_sockets_ddr_8;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
