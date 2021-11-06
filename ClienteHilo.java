@@ -1,5 +1,3 @@
-package ejercicio_sockets_ddr_8;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,7 +14,6 @@ import javax.swing.JTextArea;
 public class ClienteHilo extends Thread {
     Ventana ventana = new Ventana();//
     JButton dado = new JButton("Dado");
-    JButton cosa = new JButton("cosa");
     JTextArea txtTexto=new JTextArea();
     String numero;
 
@@ -43,11 +40,11 @@ public class ClienteHilo extends Thread {
             try {
                 ventana.setTitle("Cliente");
                 ventana.setVisible(true);
-                ventana.add(dado);
-                ventana.add(cosa);
                 ventana.add(txtTexto);
                 txtTexto.setColumns(1);
                 txtTexto.setRows(1);
+                ventana.add(dado);
+                
                 
                 dado.addActionListener(new ActionListener() {
                 @Override
